@@ -1,0 +1,19 @@
+<!-- Because we're accessing post.comments which is an array (not an object like post)
+we can't just grab the object properties like vote_count or this.vote_count,
+and need to access the array using 'this' -->
+
+<div class="comments">
+  <!-- Because this is being looped/iterate over, all of the expressions within the loop look for properties on each object in this. 
+  In this case, that means each comment. -->
+  {{#each this}}
+  
+  <section class="comment">
+    <div class="meta">
+      {{user.username}} on {{format_date created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
